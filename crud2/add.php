@@ -4,10 +4,11 @@ require_once ('conection.php');
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
 
-
-$query=$pdo->prepare("INSERT INTO INFORMATION(NOME, SENHA) VALUES(?,?)");
-$query->bindParam(1,$nome);
-$query->bindParam(2,$senha);
+$sql= "INSERT INTO usuario(NOME, SENHA) VALUES(:nome,:senha)";
+$query = $pdo->prepare($sql);
+$query->bindParam(':nome',$nome);
+$query->bindParam(':senha',$senha);
 
 $query->execute();
+header('location: form.html');
 ?>
