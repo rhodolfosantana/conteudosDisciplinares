@@ -11,6 +11,7 @@ $stmt->execute();
 
 if ($stmt->rowCount() > 0) {
 	header('location: form2.php');	
+	$_SESSION['logado'] = true;
 }else{
 	header('location: form.html');
 }
