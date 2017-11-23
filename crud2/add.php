@@ -1,15 +1,13 @@
 <?php 
-require_once ('testVeri.php');
+require_once ('conection.php');
 
 $nome = $_POST['nome'];
-$filme = $_POST['filme'];
-$serie = $_POST['serie'];
+$senha = $_POST['senha'];
 
 
-$query=$pdo->prepare("INSERT INTO DADOS(DA_NOME,DA_FILME,DA_SERIE ) VALUES(?,?,?)");
+$query=$pdo->prepare("INSERT INTO INFORMATION(NOME, SENHA) VALUES(?,?)");
 $query->bindParam(1,$nome);
-$query->bindParam(2,$filme);
-$query->bindParam(3,$serie);
+$query->bindParam(2,$senha);
 
 $query->execute();
 ?>
